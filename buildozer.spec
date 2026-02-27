@@ -1,3 +1,5 @@
+[app]
+
 # (str) Title of your application
 title = Coaching Manager
 
