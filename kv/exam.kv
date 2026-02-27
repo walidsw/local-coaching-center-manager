@@ -1,0 +1,57 @@
+<AddExamScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+
+        BoxLayout:
+            size_hint_y: 0.1
+            Label:
+                text: 'Add New Exam'
+                font_size: '24sp'
+                bold: True
+            Button:
+                text: 'Back'
+                size_hint_x: 0.2
+                on_release: root.go_back()
+
+        Label:
+            id: class_label
+            text: 'Class: '
+            size_hint_y: 0.1
+            bold: True
+
+        GridLayout:
+            cols: 2
+            spacing: 10
+            size_hint_y: 0.5
+            row_default_height: '40dp'
+            row_force_default: True
+
+            Label:
+                text: 'Exam Name *'
+            TextInput:
+                id: exam_name_input
+                multiline: False
+
+            Label:
+                text: 'Total Marks *'
+            TextInput:
+                id: total_marks_input
+                multiline: False
+                input_filter: 'float'
+
+            Label:
+                text: 'Exam Date * (YYYY-MM-DD)'
+            TextInput:
+                id: exam_date_input
+                multiline: False
+
+        AnchorLayout:
+            size_hint_y: 0.3
+            Button:
+                text: 'Save & Enter Marks'
+                size_hint: 0.5, 0.4
+                background_color: 0.1, 0.7, 0.2, 1
+                bold: True
+                on_release: root.save_exam()

@@ -1,0 +1,80 @@
+<AddStudentScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+
+        BoxLayout:
+            size_hint_y: 0.1
+            Label:
+                id: form_title
+                text: 'Add New Student'
+                font_size: '24sp'
+                bold: True
+            Button:
+                text: 'Back'
+                size_hint_x: 0.2
+                on_release: root.go_back()
+
+        ScrollView:
+            size_hint_y: 0.9
+            GridLayout:
+                cols: 2
+                spacing: 10
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: '40dp'
+                row_force_default: True
+
+                Label:
+                    text: 'Student Name *'
+                TextInput:
+                    id: name_input
+                    multiline: False
+                
+                Label:
+                    text: "Father's Name"
+                TextInput:
+                    id: father_name_input
+                    multiline: False
+
+                Label:
+                    text: "Mother's Name"
+                TextInput:
+                    id: mother_name_input
+                    multiline: False
+
+                Label:
+                    text: "Father's Mobile *"
+                TextInput:
+                    id: father_mobile_input
+                    multiline: False
+
+                Label:
+                    text: 'Alternative Mobile'
+                TextInput:
+                    id: alt_mobile_input
+                    multiline: False
+
+                Label:
+                    text: 'Class (Auto-filled)'
+                TextInput:
+                    id: class_input
+                    multiline: False
+                    readonly: True
+
+                Label:
+                    text: 'Section'
+                TextInput:
+                    id: section_input
+                    multiline: False
+
+        AnchorLayout:
+            size_hint_y: 0.15
+            Button:
+                id: save_btn
+                text: 'Save Student'
+                size_hint: 0.5, 0.8
+                background_color: 0.1, 0.7, 0.2, 1
+                bold: True
+                on_release: root.save_student()

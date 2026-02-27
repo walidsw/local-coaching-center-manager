@@ -1,0 +1,54 @@
+<PromotionScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+
+        BoxLayout:
+            size_hint_y: 0.15
+            Label:
+                text: 'Promote Students'
+                font_size: '24sp'
+                bold: True
+            Button:
+                text: 'Back'
+                size_hint_x: 0.2
+                on_release: root.manager.current = 'dashboard'
+
+        Label:
+            text: 'Warning: DO NOT delete old academic data. Promotion updates their class and logs to history.'
+            color: 1, 0.5, 0, 1
+            size_hint_y: 0.1
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+        GridLayout:
+            cols: 2
+            spacing: 10
+            size_hint_y: 0.4
+            row_default_height: '40dp'
+            row_force_default: True
+
+            Label:
+                text: 'Select Old Class'
+            Spinner:
+                id: old_class_spinner
+                text: 'Class X'
+                values: ['Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10']
+            
+            Label:
+                text: 'Select New Class'
+            Spinner:
+                id: new_class_spinner
+                text: 'Class Y'
+                values: ['Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Graduated']
+
+        AnchorLayout:
+            size_hint_y: 0.35
+            Button:
+                text: 'Promote Whole Class'
+                size_hint: 0.5, 0.4
+                background_color: 0.2, 0.6, 0.8, 1
+                bold: True
+                on_release: root.promote_class()

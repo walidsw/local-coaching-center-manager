@@ -1,0 +1,57 @@
+<ClassManagementScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        BoxLayout:
+            size_hint_y: None
+            height: '50dp'
+            Label:
+                id: title_label
+                text: 'Class Management'
+                font_size: '22sp'
+                bold: True
+            Button:
+                text: 'Add Student'
+                size_hint_x: 0.3
+                background_color: 0.1, 0.6, 0.1, 1
+                on_release: root.go_to_add_student()
+            Button:
+                text: 'Exams'
+                size_hint_x: 0.3
+                on_release: root.go_to_exams()
+            Button:
+                text: 'Back'
+                size_hint_x: 0.2
+                on_release: root.manager.current = 'batch_list'
+
+        BoxLayout:
+            size_hint_y: None
+            height: '40dp'
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.8, 0.8, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: 'ID'
+                size_hint_x: 0.2
+            Label:
+                text: 'Name'
+                size_hint_x: 0.5
+            Label:
+                text: 'Section'
+                size_hint_x: 0.15
+            Label:
+                text: 'Actions'
+                size_hint_x: 0.15
+
+        ScrollView:
+            GridLayout:
+                id: students_list
+                cols: 1
+                spacing: 2
+                size_hint_y: None
+                height: self.minimum_height

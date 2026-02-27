@@ -1,0 +1,117 @@
+<ReportsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+
+        BoxLayout:
+            size_hint_y: 0.15
+            Label:
+                text: 'System Reports'
+                font_size: '28sp'
+                bold: True
+                color: 0.1, 0.1, 0.1, 1
+            Button:
+                text: 'Back'
+                size_hint_x: 0.2
+                on_release: root.manager.current = 'dashboard'
+
+        ScrollView:
+            size_hint_y: 0.85
+            GridLayout:
+                cols: 1
+                spacing: 20
+                size_hint_y: None
+                height: self.minimum_height
+                padding: [10, 10, 10, 10]
+
+                # Summary Statistics
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: '180dp'
+                    canvas.before:
+                        Color:
+                            rgba: 0.9, 0.9, 0.95, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10]
+                    
+                    Label:
+                        text: 'General Statistics'
+                        bold: True
+                        font_size: '20sp'
+                        color: 0.2, 0.3, 0.6, 1
+                        size_hint_y: 0.3
+
+                    GridLayout:
+                        cols: 2
+                        size_hint_y: 0.7
+                        Label:
+                            text: 'Total Active Students:'
+                            color: 0.1, 0.1, 0.1, 1
+                        Label:
+                            id: total_students_label
+                            text: '0'
+                            bold: True
+                            color: 0.1, 0.1, 0.1, 1
+                        
+                        Label:
+                            text: 'Total Batches:'
+                            color: 0.1, 0.1, 0.1, 1
+                        Label:
+                            id: total_batches_label
+                            text: '0'
+                            bold: True
+                            color: 0.1, 0.1, 0.1, 1
+
+                        Label:
+                            text: 'Total Exams Conducted:'
+                            color: 0.1, 0.1, 0.1, 1
+                        Label:
+                            id: total_exams_label
+                            text: '0'
+                            bold: True
+                            color: 0.1, 0.1, 0.1, 1
+
+                # Financial
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: '180dp'
+                    canvas.before:
+                        Color:
+                            rgba: 0.9, 0.95, 0.9, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10]
+                    
+                    Label:
+                        text: 'Financial Overview (This Year)'
+                        bold: True
+                        font_size: '20sp'
+                        color: 0.2, 0.6, 0.3, 1
+                        size_hint_y: 0.3
+
+                    GridLayout:
+                        cols: 2
+                        size_hint_y: 0.7
+                        Label:
+                            text: 'Total Revenue Collected:'
+                            color: 0.1, 0.1, 0.1, 1
+                        Label:
+                            id: total_revenue_label
+                            text: '0.00'
+                            bold: True
+                            color: 0.1, 0.1, 0.1, 1
+                        
+                        Label:
+                            text: 'Payments Recorded:'
+                            color: 0.1, 0.1, 0.1, 1
+                        Label:
+                            id: total_payments_label
+                            text: '0'
+                            bold: True
+                            color: 0.1, 0.1, 0.1, 1

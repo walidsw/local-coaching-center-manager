@@ -1,0 +1,26 @@
+<BatchListScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+
+        BoxLayout:
+            size_hint_y: 0.1
+            Label:
+                text: 'Select Batch'
+                font_size: '24sp'
+                bold: True
+            Button:
+                text: 'Back'
+                size_hint_x: 0.2
+                on_release: root.manager.current = 'dashboard'
+
+        ScrollView:
+            size_hint_y: 0.9
+            GridLayout:
+                id: batch_grid
+                cols: 1
+                spacing: 10
+                size_hint_y: None
+                height: self.minimum_height
+                # Buttons will be dynamically added here

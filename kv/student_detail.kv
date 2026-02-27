@@ -1,0 +1,127 @@
+<StudentDetailScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        BoxLayout:
+            size_hint_y: None
+            height: '40dp'
+            Label:
+                id: student_title
+                text: 'Student Details'
+                font_size: '20sp'
+                bold: True
+            Button:
+                text: 'Edit'
+                size_hint_x: 0.2
+                on_release: root.edit_student()
+            Button:
+                text: 'Delete'
+                size_hint_x: 0.2
+                background_color: 0.8, 0.1, 0.1, 1
+                on_release: root.delete_student()
+            Button:
+                text: 'Back'
+                size_hint_x: 0.2
+                on_release: root.go_back()
+
+        ScrollView:
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 15
+
+                # Personal Details Block
+                Label:
+                    text: 'Personal Details'
+                    bold: True
+                    size_hint_y: None
+                    height: '30dp'
+                    canvas.before:
+                        Color:
+                            rgba: 0.2, 0.2, 0.2, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                GridLayout:
+                    cols: 2
+                    size_hint_y: None
+                    height: self.minimum_height
+                    row_default_height: '30dp'
+                    id: personal_details_grid
+
+                # Academic & Exams
+                Label:
+                    text: 'Exam Summary'
+                    bold: True
+                    size_hint_y: None
+                    height: '30dp'
+                    canvas.before:
+                        Color:
+                            rgba: 0.2, 0.2, 0.2, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                
+                GridLayout:
+                    cols: 2
+                    size_hint_y: None
+                    height: self.minimum_height
+                    row_default_height: '30dp'
+                    id: exam_summary_grid
+
+                Label:
+                    text: 'Recent Exams'
+                    bold: True
+                    size_hint_y: None
+                    height: '30dp'
+
+                GridLayout:
+                    cols: 1
+                    size_hint_y: None
+                    height: self.minimum_height
+                    id: exam_list_grid
+                    spacing: 2
+
+                # Payment Details
+                Label:
+                    text: 'Payment History'
+                    bold: True
+                    size_hint_y: None
+                    height: '30dp'
+                    canvas.before:
+                        Color:
+                            rgba: 0.2, 0.2, 0.2, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                GridLayout:
+                    cols: 1
+                    size_hint_y: None
+                    height: self.minimum_height
+                    id: payment_list_grid
+                    spacing: 2
+
+                # Promotion History
+                Label:
+                    text: 'Promotion History'
+                    bold: True
+                    size_hint_y: None
+                    height: '30dp'
+                    canvas.before:
+                        Color:
+                            rgba: 0.2, 0.2, 0.2, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                GridLayout:
+                    cols: 1
+                    size_hint_y: None
+                    height: self.minimum_height
+                    id: promotion_list_grid
+                    spacing: 2

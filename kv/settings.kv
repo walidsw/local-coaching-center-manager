@@ -1,0 +1,70 @@
+<SettingsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+
+        BoxLayout:
+            size_hint_y: 0.15
+            Label:
+                text: 'Settings'
+                font_size: '24sp'
+                bold: True
+            Button:
+                text: 'Back'
+                size_hint_x: 0.2
+                on_release: root.manager.current = 'dashboard'
+
+        ScrollView:
+            size_hint_y: 0.85
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 15
+
+                Label:
+                    text: 'Class Monthly Fees'
+                    bold: True
+                    size_hint_y: None
+                    height: '30dp'
+                
+                GridLayout:
+                    id: fee_grid
+                    cols: 3
+                    size_hint_y: None
+                    height: self.minimum_height
+                    row_default_height: '40dp'
+                    row_force_default: True
+                    spacing: 5
+                    # Dynamic fee fields populated here
+
+                AnchorLayout:
+                    size_hint_y: None
+                    height: '50dp'
+                    Button:
+                        text: 'Save Fees'
+                        size_hint: 0.5, 1
+                        background_color: 0.1, 0.7, 0.2, 1
+                        on_release: root.save_fees()
+                
+                Label:
+                    text: 'Change Admin Password'
+                    bold: True
+                    size_hint_y: None
+                    height: '30dp'
+                TextInput:
+                    id: new_password_input
+                    hint_text: 'New Password'
+                    password: True
+                    size_hint_y: None
+                    height: '40dp'
+                    multiline: False
+                AnchorLayout:
+                    size_hint_y: None
+                    height: '50dp'
+                    Button:
+                        text: 'Update Password'
+                        size_hint: 0.5, 1
+                        background_color: 0.8, 0.2, 0.2, 1
+                        on_release: root.update_password()

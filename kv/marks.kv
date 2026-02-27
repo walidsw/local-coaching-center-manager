@@ -1,0 +1,60 @@
+<MarksEntryScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        BoxLayout:
+            size_hint_y: None
+            height: '50dp'
+            Label:
+                id: title_label
+                text: 'Marks Entry'
+                font_size: '20sp'
+                bold: True
+            Button:
+                text: 'Generate PDF'
+                size_hint_x: 0.3
+                background_color: 0.2, 0.2, 0.8, 1
+                on_release: root.generate_pdf()
+            Button:
+                text: 'Back'
+                size_hint_x: 0.2
+                on_release: root.go_back()
+
+        BoxLayout:
+            size_hint_y: None
+            height: '40dp'
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.8, 0.8, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: 'Student ID'
+                size_hint_x: 0.25
+            Label:
+                text: 'Name'
+                size_hint_x: 0.4
+            Label:
+                text: 'Marks Obtained'
+                size_hint_x: 0.35
+
+        ScrollView:
+            GridLayout:
+                id: students_marks_list
+                cols: 1
+                spacing: 2
+                size_hint_y: None
+                height: self.minimum_height
+
+        AnchorLayout:
+            size_hint_y: None
+            height: '60dp'
+            Button:
+                text: 'Save All Marks'
+                size_hint: 0.5, 0.8
+                background_color: 0.1, 0.7, 0.2, 1
+                bold: True
+                on_release: root.save_all_marks()

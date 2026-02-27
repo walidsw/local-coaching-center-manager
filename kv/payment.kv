@@ -1,0 +1,94 @@
+<PaymentScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        BoxLayout:
+            size_hint_y: None
+            height: '50dp'
+            Label:
+                text: 'Payments Management'
+                font_size: '24sp'
+                bold: True
+            Button:
+                text: 'Back'
+                size_hint_x: 0.2
+                on_release: root.manager.current = 'dashboard'
+
+        # Student Selection
+        BoxLayout:
+            size_hint_y: None
+            height: '40dp'
+            spacing: 10
+            Label:
+                text: 'Student ID / Class:'
+                size_hint_x: 0.3
+            TextInput:
+                id: search_input
+                hint_text: 'Enter STU.... or Select Class'
+                multiline: False
+                size_hint_x: 0.5
+            Button:
+                text: 'Search'
+                size_hint_x: 0.2
+                on_release: root.search_student()
+
+        # Display details & payment actions
+        BoxLayout:
+            size_hint_y: 0.2
+            orientation: 'vertical'
+            Label:
+                id: student_info_label
+                text: 'Select a student to manage payments'
+                bold: True
+
+        GridLayout:
+            cols: 2
+            size_hint_y: None
+            height: '100dp'
+            spacing: 10
+            
+            Label:
+                text: 'Month'
+            Spinner:
+                id: month_spinner
+                text: 'Select Month'
+                values: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+            
+            Label:
+                text: 'Amount'
+            TextInput:
+                id: amount_input
+                multiline: False
+                input_filter: 'float'
+
+        AnchorLayout:
+            size_hint_y: None
+            height: '50dp'
+            Button:
+                text: 'Mark as Paid'
+                size_hint: 0.5, 1
+                background_color: 0.1, 0.7, 0.2, 1
+                on_release: root.mark_paid()
+
+        # History
+        Label:
+            text: 'Payment History'
+            size_hint_y: None
+            height: '30dp'
+            bold: True
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.8, 0.8, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        ScrollView:
+            GridLayout:
+                id: payment_history_list
+                cols: 1
+                spacing: 2
+                size_hint_y: None
+                height: self.minimum_height

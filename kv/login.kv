@@ -1,0 +1,48 @@
+<LoginScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 50
+        spacing: 20
+
+        Label:
+            text: 'Local Coaching Center Manager'
+            font_size: '24sp'
+            bold: True
+            size_hint_y: 0.3
+
+        AnchorLayout:
+            size_hint_y: 0.7
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.8, 0.6)
+                spacing: 15
+
+                TextInput:
+                    id: username
+                    hint_text: 'Admin Username'
+                    multiline: False
+                    size_hint_y: None
+                    height: '48dp'
+
+                TextInput:
+                    id: password
+                    hint_text: 'Password'
+                    password: True
+                    multiline: False
+                    size_hint_y: None
+                    height: '48dp'
+
+                Button:
+                    text: 'Login'
+                    size_hint_y: None
+                    height: '50dp'
+                    background_color: (0.1, 0.5, 0.8, 1)
+                    bold: True
+                    on_release: root.do_login(username.text, password.text)
+
+                Label:
+                    id: error_msg
+                    text: ''
+                    color: (1, 0, 0, 1)
+                    size_hint_y: None
+                    height: '30dp'
